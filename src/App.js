@@ -200,63 +200,64 @@ ilk if'e değil ikinci return e gidiyor.
       });
   }, [didUpdate]);
 
-  useEffect( ()=>{
+  useEffect(()=>{
 
-    if (students !== null) {
-      var filteredStudents1 = [];
-  switch(filtered) {
-    case "Öğrenci noya göre":
-      filteredStudents1= students.sort(function (a, b) {
-        return  a.studentNumber-b.studentNumber
-       });
-   
-       setStudents(filteredStudents1);
- 
-      break;
-      case "Ada göre":
-        filteredStudents1=students.sort(function (a, b) {
-          if (a.name > b.name) {
-            return 1;
-          }
-          if (a.name < b.name) {
-            return -1;
-          }
-          return 0;
-        });
-        setStudents(filteredStudents1);
-      break;
-      case "Soyadına göre":
-        filteredStudents1=students.sort(function (a, b) {
-          if (a.surname > b.surname) {
-            return 1;
-          }
-          if (a.surname < b.surname) {
-            return -1;
-          }
-          return 0;
-        });
-        setStudents(filteredStudents1);
-        break;
-      case "Sınıfa göre":
-        filteredStudents1=students.sort(function (a, b) {
-          if (a.class > b.class) {
-            return 1;
-          }
-          if (a.class < b.class) {
-            return -1;
-          }
-          return 0;
-        });
-        setStudents(filteredStudents1);
-        break;
-  
-        default:
-          filteredStudents1=students
-           
-          break;
-      } 
+    axios
+      .get("http://localhost:3004/students")
+      .then((res) => {
+        console.log(filtered);
+        const siraliYeni=[]
+        if(filtered === 'Öğrenci noya göre'){
+          const siraliYeni = res.data.sort(function (a, b) {
+            return a.studentNumber - b.studentNumber;
+          });
+          setStudents(siraliYeni );
+        }
+        if(filtered === 'Ada göre'){
+          const siraliYeni  = res.data.sort(function (a, b) {
+            if (a.name > b.name) {
+              return 1;
+            }
+            if (a.name < b.name) {
+              return -1;
+            }
+            return 0;
+          });
+          setStudents(siraliYeni );
+        }
+        if(filtered === 'Soyadına göre'){
+          const siraliYeni  = res.data.sort(function (a, b) {
+            if (a.surname > b.surname) {
+              return 1;
+            }
+            if (a.surname < b.surname) {
+              return -1;
+            }
+            return 0;
+          });
+          setStudents(siraliYeni );
+        }
+        if(filtered === 'Sınıfa göre'){
+          const siraliYeni  = res.data.sort(function (a, b) {
+            if (a.className < b.className) {
+              return -1;
+            }
+            if (a.className > b.className) {
+              return 1;
+            }
+            return 0;
+          });
+          setStudents(siraliYeni );
+        }
+      
+        
 
-  }
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    
     
   },[filtered])
 
