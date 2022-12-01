@@ -1,0 +1,46 @@
+{
+  "students": [
+    {
+      "id": "1669275541812",
+      "studentNumber": "123",
+      "name": "MERVE",
+      "surname": "KAVAK",
+      "class": "5/B"
+    },
+    {
+      "id": "1669277988402",
+      "studentNumber": "45",
+      "name": "MUHAMMET",
+      "surname": "KARACA",
+      "class": "5/E"
+    },
+    {
+      "id": "1669280579950",
+      "studentNumber": "98",
+      "name": "ADNAN",
+      "surname": "ALBAYRAK",
+      "class": "6/E"
+    },
+    {
+      "id": "1669280890780",
+      "studentNumber": "64",
+      "name": "ELA",
+      "surname": "KAAN",
+      "class": "8/E"
+    },
+    {
+      "id": "1669483698978",
+      "studentNumber": "25",
+      "name": "RE",
+      "surname": "YJ",
+      "class": "8/A"
+    },
+    {
+      "id": "1669560814842",
+      "studentNumber": "56",
+      "name": "HU8",
+      "surname": "UI",
+      "class": "6/A"
+    }
+  ]
+}
